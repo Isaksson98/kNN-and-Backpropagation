@@ -7,18 +7,13 @@
 % 3 = dot cloud 3
 % 4 = OCR data
 
-non_gener = 1; %toggle non generalizable solution
-
+non_gener 
 dataSetNr = 3; % Change this to load new data 
 hiddenLayers = [3,5,7,32];
 learnRate = [0.1, 0.1,0.1,0.0015];
 epochs = [400,15000,15000,10000];
 
-if non_gener == 1
-    hiddenLayers = [3,5,512,32];
-    learnRate = [0.1, 0.1,0.1,0.0015];
-    epochs = [400,15000,20000,10000];
-    disp('non-gen')
+if non_gener
 end
 
 
@@ -48,14 +43,6 @@ LTrain = LBins{1};
 XTest  = XBins{2};
 DTest  = DBins{2};
 LTest  = LBins{2};
-
-if non_gener == 1
-    numSamplesPerLabelPerBin = 20;
-    [XBins, DBins, LBins] = selectTrainingSamples(X, D, L, numSamplesPerLabelPerBin, numBins, selectAtRandom );
-    XTrain = XBins{1};
-    DTrain = DBins{1};
-    LTrain = LBins{1};
-end
 
 %% Modify the X Matrices so that a bias is added
 %  Note that the bias must be the last feature for the plot code to work
