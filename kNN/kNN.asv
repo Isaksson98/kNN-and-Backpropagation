@@ -31,12 +31,8 @@ labels = LTrain(k_nearest);
 
 %Count most common neighbour
 if k == 1
-    LPred = labels;
-else
-    LPred = mode(labels);
-    LPred = transpose(LPred);
-end
-
+LPred = mode(labels);
+LPred = transpose(LPred);
 
 end
 

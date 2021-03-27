@@ -7,10 +7,10 @@
 % 3 = dot cloud 3
 % 4 = OCR data
 
-dataSetNr = 4; % Change this to load new data 
-hiddenLayers = [3,5,7,42];
-learnRate = [0.0001, 0.0001,0.0001,0.0000122];
-epochs = [4000,15000,15000,150000];
+dataSetNr = 1; % Change this to load new data 
+hiddenLayers = [3,5,7,32];
+learnRate = [0.1, 0.1,0.1,0.0015];
+epochs = [400,15000,15000,10000];
 % X - Data samples
 % D - Desired output from classifier for each sample
 % L - Labels for each sample
@@ -58,8 +58,8 @@ numIterations = epochs(dataSetNr);   % Change this, number of iterations (epochs
 learningRate  = learnRate(dataSetNr); % Change this, your learning rate
 [~,colnum_X]=size(XTrain);
 [~,colnum_D]=size(DTrain);
-W0 = normrnd(0,1, colnum_X, numHidden); % Change this, initialize your weight matrix W
-V0 = normrnd(0,1, numHidden+1, colnum_D); % Initialize your weight matrix V
+W0 = normrnd(0,0.01, colnum_X, numHidden); % Change this, initialize your weight matrix W
+V0 = normrnd(0,0.01, numHidden+1, colnum_D); % Initialize your weight matrix V
 
 % Run training loop
 tic;

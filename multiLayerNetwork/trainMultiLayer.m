@@ -31,11 +31,11 @@ ErrTest(1)  = sum(sum((YTest  - DTest ).^2)) / (NTest  * NClasses);
 
 for n = 1:numIterations
     % Add your own code here
-    grad_v = 2*HTrain'*(YTrain-DTrain); % Gradient for the output layer
+    grad_v = 2*HTrain'*(YTrain-DTrain)/NTrain; % Gradient for the output layer
     
     S = XTrain*Wout;
     Vout_bias = Vout(1:end-1,:);
-    grad_w = XTrain'*(2*(YTrain-DTrain)*Vout_bias'.*tanhprim(S)); % And the input layer
+    grad_w = XTrain'*(2*(YTrain-DTrain)*Vout_bias'.*tanhprim(S))/NTrain; % And the input layer
     
     % Take a learning step
     Vout = Vout - learningRate * grad_v;

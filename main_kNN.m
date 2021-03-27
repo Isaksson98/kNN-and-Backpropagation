@@ -41,7 +41,7 @@ LTest  = LBins{2};
 %  Note: you have to modify the kNN() function yourself.
 
 % Set the number of neighbors
-k = 5;
+k = 1;
 
 % Classify training data
 LPredTrain = kNN(XTrain, k, XTrain, LTrain);

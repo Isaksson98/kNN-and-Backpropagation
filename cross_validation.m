@@ -32,7 +32,11 @@ for i = 1:4
     end 
     result(:,i) = mean(acc,2);
     figure(i);
+    
     plot(result(2:k_iterations,i));
+    title(i);
+    xlabel('k');
+    ylabel('accuracy');
     hline = refline([0 acc_limit(i)]);
     hline.Color = 'r';
 end
